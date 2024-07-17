@@ -31,7 +31,7 @@ npx prisma migrate dev
 npm run dev
 ```
 
-## Tarefas
+## Tarefa 1
 
 Criar os endpoints para as demais operações matemáticas básicas:
   - subtração
@@ -39,16 +39,18 @@ Criar os endpoints para as demais operações matemáticas básicas:
   - divisão
 
 Registrando as operações realizadas em banco de dados e seguindo o exemplo de urls:
-  /operacoes/adicao
-  /operacoes/subtracao
-  /operacoes/multiplicacao
-  /operacoes/divisao
+  - /operacoes/adicao
+  - /operacoes/subtracao
+  - /operacoes/multiplicacao
+  - /operacoes/divisao
+
+## Tarefa 2
 
 Criar endpoint para consultar operações registradas, com a possibilidade de filtragem por tipo de operação, conforme o exemplo:
-  /operacoes/listar?tipo=1
+  - /operacoes/listar?tipo=1
 
 Onde:
-  1 = Adição
-  2 = Subtração
-  3 = Multiplicação
-  4 = Divisão
+  - 1 = Adição
+  - 2 = Subtração
+  - 3 = Multiplicação
+  - 4 = Divisão
