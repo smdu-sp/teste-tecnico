@@ -31,6 +31,19 @@ npx prisma migrate dev
 npm run dev
 ```
 
+## O Teste
+
+A ideia é criar um sistema básico de calculadora, que execute as 4 operações básicas. <br />
+Como exemplo, a operação de adição já está implementada na URL:
+
+```bash
+/operacoes/adicao
+```
+
+Além de delvover o resultado da operação como resposta para a request, também é necessário salvar os registros das operações feitas em banco de dados (SQLite). <br />
+Para consultar o que foi inserido em banco de dados, será criado um endpoint que retorne todas as operações salvas. <br />
+Caso o usuário queira, também será possível filtrar pelo tipo de operação. Mas caso contrário, retornar todas, independente do tipo. <br />
+
 ## Tarefa 1
 
 Criar os endpoints para as demais operações matemáticas básicas:
@@ -46,7 +59,7 @@ Registrando as operações realizadas em banco de dados e seguindo o exemplo de 
 
 ## Tarefa 2
 
-Criar endpoint para consultar operações registradas, com a possibilidade de filtragem por tipo de operação, conforme o exemplo:
+Criar endpoint para consultar todas as operações registradas, com a possibilidade de filtragem por tipo de operação, conforme o exemplo:
   - /operacoes/listar?tipo=1
 
 Onde:
