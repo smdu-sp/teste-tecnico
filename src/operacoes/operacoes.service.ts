@@ -6,8 +6,9 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class OperacoesService {
   constructor(private prisma: PrismaService) {}
 
-   async getAllOperations() {
-      return this.prisma.operacao.findMany();
+   async getAllOperations(tipo?: number) {
+      const where = tipo ? { tipo: Number(tipo) } : {};
+      return this.prisma.operacao.findMany({ where });
    }
 
   async adicao(operacaoDto: OperacaoDto) {

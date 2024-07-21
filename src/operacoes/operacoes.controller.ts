@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { OperacoesService } from './operacoes.service';
 
 export class OperacaoDto {
@@ -11,8 +11,8 @@ export class OperacoesController {
   constructor(private readonly operacoesService: OperacoesService) {}
 
   @Get('listar')
-  list() {
-   return this.operacoesService.getAllOperations();
+  list(@Query('tipo') tipo?: string) {
+   return this.operacoesService.getAllOperations(tipo ? Number(tipo) : undefined);
   }
 
   @Post('adicao')
