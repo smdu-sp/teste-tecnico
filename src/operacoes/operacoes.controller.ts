@@ -10,6 +10,11 @@ export class OperacaoDto {
 export class OperacoesController {
   constructor(private readonly operacoesService: OperacoesService) {}
 
+  @Get('listar')
+  list() {
+   return this.operacoesService.getAllOperations();
+  }
+
   @Post('adicao')
   adicao(@Body() operacaoDto: OperacaoDto) {
     return this.operacoesService.adicao(operacaoDto);

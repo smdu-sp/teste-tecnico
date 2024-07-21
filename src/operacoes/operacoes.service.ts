@@ -4,9 +4,11 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class OperacoesService {
-  constructor(
-    private prisma: PrismaService,
-  ) {}
+  constructor(private prisma: PrismaService) {}
+
+   async getAllOperations() {
+      return this.prisma.operacao.findMany();
+   }
 
   async adicao(operacaoDto: OperacaoDto) {
     const { valor1, valor2 } = operacaoDto;
