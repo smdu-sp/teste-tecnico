@@ -8,12 +8,12 @@ export class OperacoesService {
 
    async getAllOperations(tipo?: number) {
       const where = tipo ? { tipo: Number(tipo) } : {};
-      return this.prisma.operacao.findMany({ where });
+      return await this.prisma.operacao.findMany({ where });
    }
 
   async adicao(operacaoDto: OperacaoDto) {
-    const { valor1, valor2 } = operacaoDto;
-    const resultado = valor1 + valor2;
+    const { valor1, valor2 }: OperacaoDto = operacaoDto;
+    const resultado: number = valor1 + valor2;
     const novaOperacao = await this.prisma.operacao.create({
       data: {
         valor1,
@@ -27,8 +27,8 @@ export class OperacoesService {
   }
 
   async subtracao(operacaoDto: OperacaoDto) {
-   const { valor1, valor2 } = operacaoDto;
-   const resultado = valor1 - valor2;
+   const { valor1, valor2 }: OperacaoDto = operacaoDto;
+   const resultado: number = valor1 - valor2;
    const novaOperacao = await this.prisma.operacao.create({
      data: {
        valor1,
@@ -42,8 +42,8 @@ export class OperacoesService {
  }
 
  async multiplicacao(operacaoDto: OperacaoDto) {
-   const { valor1, valor2 } = operacaoDto;
-   const resultado = valor1 * valor2;
+   const { valor1, valor2 }: OperacaoDto = operacaoDto;
+   const resultado: number = valor1 * valor2;
    const novaOperacao = await this.prisma.operacao.create({
      data: {
        valor1,
@@ -57,8 +57,8 @@ export class OperacoesService {
  }
 
  async divisao(operacaoDto: OperacaoDto) {
-   const { valor1, valor2 } = operacaoDto;
-   const resultado = valor1 / valor2;
+   const { valor1, valor2 }: OperacaoDto = operacaoDto;
+   const resultado: number = valor1 / valor2;
    const novaOperacao = await this.prisma.operacao.create({
      data: {
        valor1,
