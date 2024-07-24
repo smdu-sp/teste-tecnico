@@ -14,4 +14,9 @@ export class OperacoesController {
   adicao(@Body() operacaoDto: OperacaoDto) {
     return this.operacoesService.adicao(operacaoDto);
   }
+
+  @Post('subtracao')
+  subtracao(@Body() operacaoDto: OperacaoDto) {
+    return this.operacoesService.subtracao(operacaoDto);
+  }
 }
