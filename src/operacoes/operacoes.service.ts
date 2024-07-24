@@ -70,6 +70,7 @@ export class OperacoesService {
 
   async listar(tipo: string) {
     const operacoes = await this.prisma.operacao.findMany();
-    return tipo ? operacoes.filter(operacao => operacao.tipo === parseInt(tipo)) : operacoes;
+    const operacoesFiltradas = operacoes.filter(operacao => operacao.tipo === parseInt(tipo)); 
+    return tipo ? operacoesFiltradas : operacoes;
   }
 }
