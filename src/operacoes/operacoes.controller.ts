@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { OperacoesService } from './operacoes.service';
 
 export class OperacaoDto {
@@ -29,4 +29,10 @@ export class OperacoesController {
   divisao(@Body() operacaoDto: OperacaoDto) {
     return this.operacoesService.divisao(operacaoDto);
   }
+
+  @Get('listar')
+  listar(@Query('tipo') tipo?: string) {
+    return this.operacoesService.listar(tipo);
+  }
+
 }
