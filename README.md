@@ -33,23 +33,32 @@ npm run dev
 
 ## O Teste
 
-A ideia é criar um sistema básico de calculadora, que execute as 4 operações básicas. <br />
-Como exemplo, a operação de adição já está implementada na URL:
+A ideia do teste foi de criar um sistema básico de calculadora, que execute as 4 operações básicas. <br />
+Como exemplo, a operação de adição já estava implementada na URL:
 
 ```bash
 /operacoes/adicao
 ```
 
 Além de delvover o resultado da operação como resposta para a request, também é necessário salvar os registros das operações feitas em banco de dados (SQLite). <br />
-Para consultar o que foi inserido em banco de dados, será criado um endpoint que retorne todas as operações salvas. <br />
-Caso o usuário queira, também será possível filtrar pelo tipo de operação. Mas caso contrário, retornar todas, independente do tipo. <br />
+Para consultar o que foi inserido em banco de dados, foi criado um endpoint que retorne todas as operações salvas. <br />
+Caso o usuário queira, também é possível filtrar pelo tipo de operação. Mas caso contrário, retorna todas, independente do tipo. <br />
 
 ## Tarefa 1
 
 Criar os endpoints para as demais operações matemáticas básicas:
-  - subtração
-  - multiplicação
-  - divisão
+  - subtração: o usuário pode fazer cálculos de subtração de dois números, através do endpoint
+  ```bash
+  /operacoes/subtracao
+  ```
+  - multiplicação: o usuário pode fazer cálculos de multiplicação de dois números, através do endpoint
+  ```bash
+  /operacoes/multiplicacao
+  ```
+  - divisão: o usuário pode fazer cálculos de divisão de dois números, através do endpoint
+  ```bash
+  /operacoes/divisão
+  ```
 
 Registrando as operações realizadas em banco de dados e seguindo o exemplo de urls:
   - /operacoes/adicao
@@ -59,7 +68,7 @@ Registrando as operações realizadas em banco de dados e seguindo o exemplo de 
 
 ## Tarefa 2
 
-Criar endpoint para consultar todas as operações registradas, com a possibilidade de filtragem por tipo de operação, conforme o exemplo:
+Foi criado um endpoint para consultar todas as operações registradas, com a possibilidade de filtragem por tipo de operação:
   - /operacoes/listar?tipo=1
 
 Onde:
@@ -67,3 +76,7 @@ Onde:
   - 2 = Subtração
   - 3 = Multiplicação
   - 4 = Divisão
+
+## Dificuldades encontradas no projeto
+
+Quando fiz o método de "listar" dentro da class OperacoesService, coloquei o argumento tipo com tipagem de number, e quando eu chamava o método no Insominia , ele entrava somente no else de listar todas as operações, e quando eu colocava um tipo para ser listado , ele me retornava um erro 500, mencionando que ele estava aguardando um tipo string no lugar do number. Foi onde entendi que uma Query é sempre uma string, mesmo que no código seja number. 
