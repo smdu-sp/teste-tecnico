@@ -24,4 +24,9 @@ export class OperacoesController {
   multiplicacao(@Body() operacaoDto: OperacaoDto) {
     return this.operacoesService.multiplicacao(operacaoDto);
   }
+
+  @Post('divisao')
+  divisao(@Body() operacaoDto: OperacaoDto) {
+    return this.operacoesService.divisao(operacaoDto);
+  }
 }
